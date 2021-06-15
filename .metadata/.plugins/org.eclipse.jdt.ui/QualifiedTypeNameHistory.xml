@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.text.ParseException"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="br.com.BibliotecaRest.objetos.SessaoAdmin"/>
+<fullyQualifiedTypeName name="br.com.BibliotecaRest.objetos.Emprestimo"/>
+<fullyQualifiedTypeName name="br.com.BibliotecaRest.objetos.Divida"/>
+<fullyQualifiedTypeName name="java.util.Locale"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Timer"/>
+<fullyQualifiedTypeName name="java.util.TimerTask"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="br.com.BibliotecaRest.objetos.Sessao"/>
+<fullyQualifiedTypeName name="br.com.BibliotecaRest.objetos.Usuario"/>
+<fullyQualifiedTypeName name="java.security.MessageDigest"/>
+<fullyQualifiedTypeName name="java.math.BigInteger"/>
+<fullyQualifiedTypeName name="br.com.BibliotecaRest.objetos.Criptografia"/>
+<fullyQualifiedTypeName name="javax.ws.rs.QueryParam"/>
+<fullyQualifiedTypeName name="org.apache.commons.mail.SimpleEmail"/>
+<fullyQualifiedTypeName name="org.apache.commons.mail.DefaultAuthenticator"/>
+<fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="br.com.BibliotecaRest.objetos.SessaoEmail"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,747 @@
+SENAI.biblioteca = new Object();
+
+$(document)
+		.ready(
+				function() {
+					
+					SENAI.biblioteca.cadastrarEmprestimo = function() {
+						var novoEmprestimo = new Object();
+						var data = new Date();
+						novoEmprestimo.clienteId = $("#inputCliente").val();
+						novoEmprestimo.livroId = $("#inputLivro").val();	
+						
+						var mes = 0;
+						var dia = 0;
+						var ano = 0; 
+						
+						if((data.getMonth()+1) == 1){
+							if(data.getDate() >= 25){
+								dia = (data.getDate()+7) - 31;
+								mes = 2;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 2){
+							if(data.getDate() >= 23){
+								dia = (data.getDate()+7) - 29;
+								mes = 3;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 3){
+							if(data.getDate() >= 25){
+								dia = (data.getDate()+7) - 31;
+								mes = 4;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 4){
+							if(data.getDate() >= 24){
+								dia = (data.getDate()+7) - 30;
+								mes = 5;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 5){
+							if(data.getDate() >= 25){
+								dia = (data.getDate()+7) - 31;
+								mes = 6;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 6){
+							if(data.getDate() >= 24){
+								dia = (data.getDate()+7) - 30;
+								mes = 7;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 7){
+							if(data.getDate() >= 25){
+								dia = (data.getDate()+7) - 31;
+								mes = 8;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 8){
+							if(data.getDate() >= 25){
+								dia = (data.getDate()+7) - 31;
+								mes = 9;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 9){
+							if(data.getDate() >= 24){
+								dia = (data.getDate()+7) - 30;
+								mes = 10;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 10){
+							if(data.getDate() >= 25){
+								dia = (data.getDate()+7) - 31;
+								mes = 11;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 11){
+							if(data.getDate() >= 24){
+								dia = (data.getDate()+7) - 30;
+								mes = 12;
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}else if((data.getMonth()+1) == 12){
+							if(data.getDate() >= 25){
+								dia = (data.getDate()+7) - 31;
+								mes = 1;
+								ano = (data.getFullYear()+1)
+								novoEmprestimo.dataDev = (ano)+"-"+(mes)+"-"+(dia);
+							}else{
+								novoEmprestimo.dataDev = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+(data.getDate()+7);
+							}
+						}
+						
+						
+						novoEmprestimo.dataEmp = data.getFullYear()+"-"+(data.getMonth()+1)+"-"+data.getDate();
+						novoEmprestimo.status = 1;
+						
+						var cfgajax = {
+							url : "../../rest/bibliotecaRest/addEmprestimo",
+							data : novoEmprestimo,
+							success : function(msg) {
+								var cfg = {
+									title : "Mensagem",
+									height : 250,
+									width : 400,
+									modal : true,
+									buttons : {
+										"OK" : function() {
+											$(this).dialog("close");
+											SENAI.biblioteca.exibirLivroSelect()
+										}
+									}
+								};
+								$("#msg").html(msg);
+								$("#msg").dialog(cfg);
+
+								SENAI.biblioteca.buscarEmprestimo();
+							},
+
+							error : function(err) {
+								alert("Erro:"
+										+ err.responseText);
+							}
+
+						};
+
+						SENAI.ajax.post(cfgajax);
+					};
+					
+					SENAI.biblioteca.buscarEmprestimo = function() {
+						var valorBusca = $("#searchBar").val();
+						SENAI.biblioteca.exibirEmprestimos(undefined, undefined, undefined, valorBusca);
+						SENAI.biblioteca.exibirEmprestimosFinalizados(undefined, undefined, undefined, valorBusca);
+					};
+					
+					SENAI.biblioteca.exibirEmprestimos = function(listaDeEmprestimos, listaDeLivros, listaDeClientes,
+							valorBusca) {
+						var cfg = {
+								type : "POST",
+								url : "../../rest/bibliotecaRest/inserirDividas/",
+								success : function() {
+									
+								},
+								error : function(err) {
+									alert("Erro ao consultar as dívidas: "
+											+ err.responseText);
+								}
+									
+							};
+						SENAI.ajax.post(cfg);
+						var search = document.getElementById("searchBar");
+						search.addEventListener("keyup", function(event) {
+						  if (event.keyCode === 13) {
+						   event.preventDefault();
+						   document.getElementById("searchButton").click();
+						  }
+						});
+						
+					
+						if (listaDeEmprestimos != undefined
+								&& listaDeEmprestimos.length > 0) { 
+							
+							let perPage = 16
+							const state = {
+							  page: 1,
+							  perPage,
+							  totalPage: Math.ceil(listaDeLivros.length / perPage),
+							  maxVisibleButtons: 5
+							}
+						 
+						 const html = {
+									get(element){
+										return document.querySelector(element)
+									}
+							}
+
+							
+
+							
+						
+							
+							const controls = {
+							  next(){
+							    state.page++
+							   
+							    const lastPage = state.page > state.totalPage
+							    if(lastPage) {
+							    	state.page--
+							    }
+							  },
+							  prev(){
+								  state.page--
+								  if(state.page < 1){
+									  state.page++
+								  }
+							  },
+							  goTo(page){
+								 state.page = +page
+							   },
+							
+							  createListeners() {
+								 
+								  
+								  html.get('.next').addEventListener('click', () => {
+									  controls.next()
+									  update()
+								  })
+								  
+								  html.get('.prev').addEventListener('click', () => {
+									  controls.prev()
+									  update()
+								  })
+								  
+								 html.get('.last').addEventListener('click', () => {
+									  controls.goTo(state.totalPage)
+									  update()
+								  })
+								  html.get('.first').addEventListener('click', () => {
+									  controls.goTo(1)
+									  update()
+								  })}
+							  
+							}
+							
+							var bandeira = false;
+							var str1 = "";
+	
+							var n = "";
+							var date = new Date();
+							var str2 = new Date();
+							var dd = String(str2.getDate()).padStart(2, '0');
+							var mm = String(str2.getMonth() + 1).padStart(2, '0'); //January is 0!
+							var yyyy = str2.getFullYear();
+						 
+							const list = {
+									create(item){
+										const table = document.createElement('table')
+										table.classList.add('table')
+										table.classList.add('table-bordered')
+							
+							for (var t = 0; t < listaDeClientes.length; t++) {
+								
+								if(listaDeClientes[t].id == item.clienteId){
+									str1 = item.dataDev;
+									
+									str2 = dd + "/" + mm + "/" + yyyy;
+									  n = str1.localeCompare(str2);
+									 
+									  table.innerHTML = "<tr>"
+										+ "<td>"
+										for (var h = 0; h < listaDeClientes.length; h++){
+											if(listaDeClientes[h].id == item.clienteId){
+												table.innerHTML = ""+ listaDeClientes[h].nome +"";
+											}	
+										}
+									  table.innerHTML += "</td>"
+										+"<td>"
+										for (var j = 0; j < listaDeLivros.length; j++){
+											if(listaDeLivros[j].id == item.livroId){
+												table.innerHTML += ""+ listaDeLivros[j].titulo +"";
+											}	
+										}
+									  table.innerHTML += "</td>"
+										+"<td>"
+										+ item.dataEmp
+										+ "</td>"
+									
+										  if(n == -1){
+											  table.innerHTML += "<td bgcolor='#ff4500'>"
+												+ item.dataDev
+												+ "</td>"; 
+										
+										  }else{
+											  table.innerHTML += "<td>"
+													+ item.dataDev
+													+ "</td>";
+										  }
+										
+									  table.innerHTML += "<td>"
+										+ "<a class = 'delete' onclick = 'SENAI.biblioteca.finalizarEmprestimo("
+										+ item.id
+										+ ")'>"
+										+ "<button>Finalizar</button></a></td></tr>";
+										
+										
+								}
+							}
+										html.get('.resultadoEmprestimos').appendChild(table);
+									},
+									update(){
+										 
+										 html.get('.resultadoEmprestimos').innerHTML = ""
+											
+										let page = state.page - 1
+										let start = page * state.perPage
+										let end = start + state.perPage
+										const paginatedItems = listaDeEmprestimos.slice(start, end)
+										
+										paginatedItems.forEach(list.create);
+									 }
+									 
+							 	}
+								
+								const buttons = {
+										element: html.get('.pagination .numbers'),
+										create(number) {
+											const button = document.createElement('a')
+											
+											button.innerHTML = number;
+											
+											if(state.page == number){
+												button.classList.add('active')
+											}
+											
+											button.addEventListener('click', (event) => {
+												const page = event.target.innerText
+												
+												controls.goTo(page)
+												update()
+											})
+											
+											buttons.element.appendChild(button)
+										},
+										update() {
+											buttons.element.innerHTML = ""
+												const {maxLeft, maxRight} = buttons.calculateMaxVisible()
+												
+												
+												for(let page = maxLeft; page<=maxRight; page++){
+													buttons.create(page)
+												}
+										},
+										calculateMaxVisible(){
+											const { maxVisibleButtons } = state
+											let maxLeft = (state.page - Math.floor(maxVisibleButtons / 2))
+											let maxRight = (state.page + Math.floor(maxVisibleButtons / 2))
+										 if(maxLeft < 1){
+											 maxLeft = 1
+											 maxRight = maxVisibleButtons
+										 }
+											if(maxRight > state.totalPage){
+												maxLeft = state.totalPage - (maxVisibleButtons - 1)
+												maxRight = state.totalPage
+												
+												if(maxLeft < 1){
+													maxLeft = 1
+												}
+											}
+											
+											return {maxLeft, maxRight}
+										}
+								}
+								
+								function update() {
+									list.update()
+							 		buttons.update()
+							 	}
+							 
+							 	function init(){
+							 		update()
+							 		controls.createListeners()
+							 	}
+							 	
+							 	init();
+							
+							
+						} else {
+							if (listaDeEmprestimos == undefined) {
+								if (valorBusca == "") {
+									valorBusca = null;
+								}
+							
+								var cfg = {
+									type : "POST",
+									url : "../../rest/bibliotecaRest/buscarClientesPorNome/" 
+										+ valorBusca,
+									success : function(listaDeClientes) {
+										
+										var cfh = {
+												type : "GET",
+												url : "../../rest/bibliotecaRest/coletarLivros2/",
+												success : function(listaDeLivros) {
+													var cfo = {
+															type : "GET",
+															url : "../../rest/bibliotecaRest/buscarEmprestimos/",
+															success : function(listaDeEmprestimos) {
+																
+																			SENAI.biblioteca.exibirEmprestimos(listaDeEmprestimos, listaDeLivros, listaDeClientes);
+																		
+															},
+														
+															error : function(err) {
+																alert("Erro ao consultar os empréstimos: "
+																		+ err.responseText);
+															}
+														};
+													SENAI.ajax.post(cfo);
+												},
+												error : function(err) {
+													alert("Erro ao consultar os empréstimos: "
+															+ err.responseText);
+												}
+													
+											};
+										SENAI.ajax.post(cfh);
+									},
+									error : function(err) {
+										alert("Erro ao consultar os Emprestimos: "
+												+ err.responseText);
+									}
+								};
+
+								SENAI.ajax.post(cfg);
+							
+							}else{
+								const html = {
+										get(element){
+											return document.querySelector(element)
+										}
+								}
+								html.get('.resultadoEmprestimos').innerHTML = "<span><label><font color='red'> Nenhum registro encontrado. </font></label></span>";
+							}
+							
+							
+							
+							
+						}
+						
+	
+					};
+					
+				
+					SENAI.biblioteca.exibirEmprestimosFinalizados = function(listaDeEmprestimosFinalizados, listaDeLivros, listaDeClientes,
+							valorBusca) {
+						var search = document.getElementById("searchBar");
+						search.addEventListener("keyup", function(event) {
+						  if (event.keyCode === 13) {
+						   event.preventDefault();
+						   document.getElementById("searchButton").click();
+						  }
+						});
+						var html = "<table class='table table-bordered'>";
+						html += "<tr><th>   Leitor   </th><th>   Livro   </th><th>   Data de empréstimo   </th><th>   Data para devolução   </th><th>   Data real de devolução   </th>" +
+								"</tr>";
+					
+					
+						if (listaDeEmprestimosFinalizados != undefined
+								&& listaDeEmprestimosFinalizados.length > 0) { 
+							var bandeira = false;
+							
+							for (var t = 0; t < listaDeClientes.length; t++) {
+								for (var i = 0; i < listaDeEmprestimosFinalizados.length; i++) {
+								if(listaDeClientes[t].id == listaDeEmprestimosFinalizados[i].clienteId){
+									
+								
+								html += "<tr>"
+										+ "<td>"
+										for (var h = 0; h < listaDeClientes.length; h++){
+											if(listaDeClientes[h].id == listaDeEmprestimosFinalizados[i].clienteId){
+												html+= ""+ listaDeClientes[h].nome +"";
+											}	
+										}
+										html+= "</td>"
+										+"<td>"
+										for (var j = 0; j < listaDeLivros.length; j++){
+											if(listaDeLivros[j].id == listaDeEmprestimosFinalizados[i].livroId){
+												html+= ""+ listaDeLivros[j].titulo +"";
+											}	
+										}
+										html+= "</td>"
+										+"<td>"
+										+ listaDeEmprestimosFinalizados[i].dataEmp
+										+ "</td>"
+										+ "<td>"
+										+ listaDeEmprestimosFinalizados[i].dataDev
+										+ "</td>"
+										+"<td>"
+										+ listaDeEmprestimosFinalizados[i].dataReal
+										+ "</td></tr>";
+										
+										bandeira = true;
+								}
+							}
+							}
+							if(bandeira == false){
+								html += "<tr><td colspan='5'> Nenhum registro encontrado</td>"
+									+ "</tr>";
+							}
+						} else {
+							if (listaDeEmprestimosFinalizados == undefined) {
+								if (valorBusca == "") {
+									valorBusca = null;
+								}
+							
+								var cfg = {
+									type : "POST",
+									url : "../../rest/bibliotecaRest/buscarClientesPorNome/" 
+										+ valorBusca,
+									success : function(listaDeClientes) {
+										
+										var cfh = {
+												type : "GET",
+												url : "../../rest/bibliotecaRest/coletarLivros2/",
+												success : function(listaDeLivros) {
+													var cfo = {
+															type : "GET",
+															url : "../../rest/bibliotecaRest/buscarEmprestimosFinalizados/",
+															success : function(listaDeEmprestimosFinalizados) {
+																
+																			SENAI.biblioteca.exibirEmprestimosFinalizados(listaDeEmprestimosFinalizados, listaDeLivros, listaDeClientes);
+																		
+															},
+														
+															error : function(err) {
+																alert("Erro ao consultar os empréstimos: "
+																		+ err.responseText);
+															}
+														};
+													SENAI.ajax.post(cfo);
+												},
+												error : function(err) {
+													alert("Erro ao consultar os empréstimos: "
+															+ err.responseText);
+												}
+													
+											};
+										SENAI.ajax.post(cfh);
+									},
+									error : function(err) {
+										alert("Erro ao consultar os EmprestimosFinalizados: "
+												+ err.responseText);
+									}
+								};
+
+								SENAI.ajax.post(cfg);
+							
+							}else{
+								html += "<tr><td colspan='5'> Nenhum registro encontrado</td>"
+									+ "</tr>";
+							}
+							
+							
+							
+							
+						}
+						html += "</table>";
+						$(".resultadoEmprestimosFin").html(html);
+						
+					};
+						
+					
+					
+					
+					SENAI.biblioteca.exibirEmprestimos(undefined, undefined, undefined, "");
+					SENAI.biblioteca.exibirEmprestimosFinalizados(undefined, undefined, undefined, "");
+					
+					
+					SENAI.biblioteca.exibirLivroSelect = function() {
+						var html = 
+							"<label>Selecione o leitor:</label>"+
+							"<select id='inputCliente' class='form-control form-control-sm'>"+
+							"</select>"+
+							"<label>Selecione o livro:</label>" +
+							"<select id='inputLivro' class='form-control form-control-sm'>"+
+							"</select>";
+						$("#selects").html(html);
+						$.ajax({
+							type : "GET",
+							url : "../../rest/bibliotecaRest/coletarLivros/",
+							
+							success : function(listaDeLivros) {
+								if (listaDeLivros != ""){
+									$("#inputLivro").html("");
+									var option = document.createElement("option");
+									option.setAttribute ("value", "");
+									option.innerHTML = ("Selecione");
+									$("#inputLivro").append(option);
+									for (var i = 0; i < listaDeLivros.length; i++){
+										if(listaDeLivros[i].quantidade > 0){
+											var option = document.createElement("option");
+											option.setAttribute ("value", listaDeLivros[i].id);
+											option.innerHTML = (listaDeLivros[i].titulo+" ["+listaDeLivros[i].quantidade+"]");
+											$("#inputLivro").append(option);
+										}
+									}
+								}else{
+									$("#inputLivro").html("");
+									
+									var option = document.createElement("option");
+									option.setAttribute ("value", "");
+									option.innerHTML = ("Cadastre um livro primeiro!");
+									$("#inputLivro").append(option);
+									$("#inputLivro").addClass("aviso");
+								}
+								SENAI.biblioteca.exibirClienteSelect()
+							},
+							error: function(err){
+								alert("Erro ao coletar os livros: "
+										+ err.responseText);
+							}
+						});
+					};
+					
+					
+					SENAI.biblioteca.exibirClienteSelect = function() {	
+						$.ajax({
+							type : "GET",
+							url : "../../rest/bibliotecaRest/coletarCliente/",
+					
+							success : function(listaDeClientes) {
+	
+								if (listaDeClientes != ""){
+									$("#inputCliente").html("");
+									var option = document.createElement("option");
+									option.setAttribute ("value", "");
+									option.innerHTML = ("Selecione");
+									$("#inputCliente").append(option);
+									
+									for (var i = 0; i < listaDeClientes.length; i++){
+										var option = document.createElement("option");
+										option.setAttribute ("value", listaDeClientes[i].id);
+										option.innerHTML = (listaDeClientes[i].nome);
+										$("#inputCliente").append(option);
+									}
+								}else{
+									$("#inputCliente").html("");
+									
+									var option = document.createElement("option");
+									option.setAttribute ("value", "");
+									option.innerHTML = ("Cadastre um cliente primeiro!");
+									$("#inputCliente").append(option);
+									$("#inputCliente").addClass("aviso");
+								}
+								
+							},
+							error: function(err){
+								alert("Erro ao coletar os clientes: "
+										+ err.responseText);
+							}
+						});
+					};
+						
+					
+					
+					SENAI.biblioteca.finalizarEmprestimo = function(id) {
+						var cfg = {
+								type : "GET",
+								url : "../../rest/bibliotecaRest/buscarDividas/",
+								success : function(divida) {
+									var valor = 0;
+									var msg = "";
+									for(var i = 0; i<divida.length; i++){
+										if(divida[i].emprestimoId == id){
+											valor = divida[i].valor;
+										}
+									}
+									if(valor > 0){
+										msg = "Este empréstimo possui uma dívida pendente no valor de: R$"+valor+",00. Ao finaliza-lo, também finalizará a dívida. Deseja continuar?";
+									}else{
+										msg = "Tem certeza que deseja finalizar este empréstimo?";
+									}
+																		
+						var cfg = {
+								title : "Mensagem",
+								height : 250,
+								width : 400,
+								modal : true,
+								buttons : {
+									"Não" : function() {
+										$(this).dialog("close");
+									},
+									"Sim" : function() {
+										$("#msg").dialog(cfg);
+										var qtLinhas = $("#resultadoEmprestimos tr").length;
+										$(this).parents("tr").remove();
+										$("#add-new").removeAttr("disabled");
+										if ((qtLinhas - 2) == 0) {
+											SENAI.biblioteca.buscarEmprestimo();
+										};
+									
+										var cfg = {
+											type : "POST",
+											url : "../../rest/bibliotecaRest/finalizarEmprestimo/"
+													+ id,
+											success : function(msg) {
+												var cfg = {
+													title : "Mensagem",
+													height : 250,
+													width : 400,
+													modal : true,
+													buttons : {
+														"OK" : function() {
+															$(this).dialog("close");
+														}
+													}
+												};
+
+												$("#msg").html(msg);
+												$("#msg").dialog(cfg);
+												
+												SENAI.biblioteca.exibirLivroSelect();
+												SENAI.biblioteca.buscarEmprestimo();
+											},
+											error : function(err) {
+												alert("Erro ao finalizar o empréstimo: "
+														+ err.responseText);
+											}
+										};
+										SENAI.ajax.post(cfg);
+									}
+								}
+							};
+
+						$("#msg").html(msg);
+						$("#msg").dialog(cfg);
+								},
+								error : function(err) {
+									alert("Erro ao finalizar o empréstimo: "
+											+ err.responseText);
+								}
+							};
+							SENAI.ajax.post(cfg);
+					}
+					
+				});

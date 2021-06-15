@@ -1,0 +1,12 @@
+
+<link rel="stylesheet" href="resources/login/css/login.css">
+
+<legend>Login de usuário</legend>
+	<form>
+		<input type="text" name="usuario" placeholder ="Usuário(CPF)">
+		<input type="text" name="senha" placeholder="Senha">
+		<input type="submit" value="Submit">
+	</form>
+	<div id="msg" style="display:none"></div>
+	</body>
+</html>

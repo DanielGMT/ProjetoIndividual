@@ -1,0 +1,7 @@
+SENAI = new Object();
+
+$(document).ready(function() {
+	
+});
+
+$("#navbar").load("resources/PaginaInicial/navbar.html");

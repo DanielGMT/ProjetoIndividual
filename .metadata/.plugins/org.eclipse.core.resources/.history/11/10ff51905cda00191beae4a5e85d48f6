@@ -1,0 +1,9 @@
+<h1>Login de usuário</h1>
+	<form>
+		<input id="user" type="text" name="usuario" placeholder ="Usuário(CPF)"><BR>
+		<input id="pass" type="text" name="senha" placeholder="Senha">
+		<input id="sbmt" type="submit" value="Submit">
+	</form>
+	<div id="msg" style="display:none"></div>
+	</body>
+</html>

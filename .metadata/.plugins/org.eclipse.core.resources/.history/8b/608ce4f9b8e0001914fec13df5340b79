@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="ISO-8859-1">
+		<title>Registro de autores</title>
+		<meta charset="UTF-8">
+		<title>NavBar</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="resources/js/jquery.js"></script>
+		
+		<link rel="stylesheet" href="resources/css/jquery-ui.css">
+		
+		<link rel="stylesheet" href="css/registroAutor.css">
+		 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		
+		<script src="resources/js/ajax.js"></script>
+</head>
+<body>
+<div id="formulario">
+	<div id="cadastrarAutor">
+	  <p>
+	  	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+	    	Cadastrar autor
+	    	<span class="caret"></span>
+	  	</button>
+	  </p>
+    </div>
+	<div class="collapse" id="collapseExample">
+	   <form>
+	  	  <div class="form-group">
+	   		  <label for="exampleInputEmail1">Nome do autor</label>
+	    	  <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome">
+		  	  </div>
+			  <div id="entrar">
+			  	<button type="submit" class="btn btn-primary">Adicionar</button>
+		  </div>	
+	   </form>
+	</div>
+</div>
+</body>
+</html>

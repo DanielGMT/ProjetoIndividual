@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+		<meta charset="UTF-8">
+		<title>Tela de login</title>
+		
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="resources/js/jquery.js"></script>
+		
+		<link rel="stylesheet" href="resources/css/jquery-ui.css">
+		
+		<link rel="stylesheet" href="css/NavBarADM.css">
+		 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		
+		<script src="resources/js/ajax.js"></script>
+		
+		<script src="js/navbar.js"></script>
+		
+		<script type="text/javascript" src="WebContent/index.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="includes/upload/jquery-1.4.2.min.js"></script>
+	</head>
+	<body>
+		<div id="navbar" class="area"></div>
+		<div id="login" class ="area"></div>
+	</body>
+</html>
+	

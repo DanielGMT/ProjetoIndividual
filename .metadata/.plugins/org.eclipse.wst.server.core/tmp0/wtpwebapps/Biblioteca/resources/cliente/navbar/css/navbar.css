@@ -1,0 +1,103 @@
+.body{
+    margin: 0;
+ }
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+
+.img-rounded{
+margin-top: -25%;
+}
+
+.navbar-nav>li>a {
+	padding-bottom: 0px;
+}
+
+
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc 
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+.container-fluid{
+    background-color: #343a40;
+    
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover{
+	background-color: #6b6b6b !important;
+}
+ .dropdown-menu{
+	min-width: 100% !important;
+	text-align: left !important;
+	padding: 5px 5px !important;
+}
+  .dropdown-menu>li>a{
+  	padding: 5px !important;
+  	text-align: left;
+  }
+  h5{
+  	float: left;
+  }
+ 
+  
+  .navbar-brand{
+   	margin-left: -5px !important; 
+   	color: white !important;
+  }
+ 
+ 
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+ 	padding-right: 9px;
+ 	margin-right: 7px;
+ 	
+  }
+  
+ .navbar-inverse .navbar-text b{
+	 color: green;
+	 cursor: default;
+ }
+	

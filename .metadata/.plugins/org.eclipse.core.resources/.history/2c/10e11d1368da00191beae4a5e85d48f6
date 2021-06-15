@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Login de usuário</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="resources/js/jquery.js"></script>
+		<link rel="stylesheet" href="resources/css/jquery-ui.css">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="resources/js/jquery-ui.js"></script>
+		<link rel="stylesheet" href="resources/login/css/login.css">
+		<script src="resources/js/ajax.js"></script>
+		<script src="index.js"></script>
+		<script src="resources/contato/js/contato.js"></script>
+	</head>
+		<body>
+			<div id="login" class="div"></div>
+				
+			

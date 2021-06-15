@@ -1,0 +1,49 @@
+	
+<div class="container">
+	<div id="cadastrarAutor">
+	  <p>
+	  	<button class="btn btn-primary" id="downButton" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+	    	Cadastrar novo autor
+	    	<span class="caret"></span>
+	  	</button>
+	  </p>
+    </div>
+	<div class="collapse" id="collapseExample">
+	   <form>
+	  	  <div class="form-group">
+	   		  <label for="exampleInputEmail1">Nome do autor</label>
+	    	  <input class="form-control" id="inputname" placeholder="Nome">
+		  	  </div>
+			  <div id="entrar">
+			  	<button type="button" id="add-new" onclick="SENAI.autor.cadastrar()" class="btn btn-primary">Adicionar</button>
+		  </div>	
+	   </form>
+	</div>
+	<div class="table-wrapper">
+			<div class="col-md-12">
+                            <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">Autores registrados</h2>
+                            <div class="input-group md-form form-sm form-2 pl-0">
+                                <input class="form-control my-0 py-1 pl-3 purple-border" id="searchBar" type="text" placeholder="Buscar" aria-label="Search">
+                               	<button type="button" id="searchButton" onclick="SENAI.autor.buscar()" class="btn btn-primary form-control my-0 py-1 pl-3 purple-border">lala</button>
+                                <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"></span>
+                            </div>
+                        </div>
+			<div class="table-title" id="resultadoAutores">
+				
+			</div>
+			
+            <div class="clearfix">
+                <div class="hint-text">Exibindo <b>5</b> de <b>10</b> entradas</div>
+                <ul class="pagination">
+                    <li class="page-item disabled"><a href="#">Anterior</a></li>
+                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">4</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item"><a href="#" class="page-link">Próximo</a></li>
+                </ul>
+            </div>
+        </div>
+   </div>
+	<div id="msg" style="display:none"> </div>

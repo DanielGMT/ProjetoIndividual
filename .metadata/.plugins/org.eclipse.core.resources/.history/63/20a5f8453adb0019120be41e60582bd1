@@ -1,0 +1,5 @@
+SENAI = new Object();
+
+$(document).ready(function() {
+	$("#id").load("resources/login/Login.html");
+});

@@ -1,0 +1,774 @@
+package br.com.BibliotecaRest.jdbc;
+
+import java.sql.Connection;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
+
+import br.com.BibliotecaRest.objetos.Autor;
+import br.com.BibliotecaRest.objetos.Editora;
+import br.com.BibliotecaRest.objetos.Livro;
+import br.com.BibliotecaRest.objetos.Admin;
+import br.com.BibliotecaRest.objetos.Cliente;
+import br.com.BibliotecaRest.objetos.Usuario;
+public class JDBCBibliotecaDAO {
+
+	private Connection conexao;
+
+	public JDBCBibliotecaDAO(Connection conexao) {
+		this.conexao = conexao;
+	}
+
+	public boolean inserir(Autor autor) {
+		String comando = "INSERT INTO autores " + "(nome) " + "VALUES (?)";
+
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, autor.getNome());
+			p.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public List<Autor> buscarPorNome(String nome) {
+		String comando = "SELECT * FROM autores ";
+		if (!nome.equals("null") && !nome.equals("")) {
+			comando += "WHERE nome LIKE '" + nome + "%'";
+		}
+		List<Autor> listAutor = new ArrayList<Autor>();
+		Autor autor = null;
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			while (rs.next()) {
+				autor = new Autor();
+				String nomeAutor = rs.getString("nome");
+				int id = rs.getInt("id");
+
+				autor.setId(id);
+				autor.setNome(nomeAutor);
+
+				listAutor.add(autor);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listAutor;
+	}
+
+	public boolean deletarAutor(int id) {
+		String comando = "DELETE from autores WHERE id=" + id;
+		Statement p;
+		try {
+			p = this.conexao.createStatement();
+			p.execute(comando);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public Autor buscarPorId(int id) {
+		String comando = "SELECT * FROM autores WHERE id="+id;
+		Autor autor = new Autor();
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			while (rs.next()) {
+				String nome = rs.getString("nome");
+				int idAutor = rs.getInt("id");
+
+				autor.setId(idAutor);
+				autor.setNome(nome);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return autor;
+	}
+
+	public boolean atualizar(Autor autor) {
+		String comando = "UPDATE autores SET nome=? ";
+				comando += "WHERE id="+autor.getId();
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, autor.getNome());
+			p.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	//---------------------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	public boolean inserirEditora(Editora editora) {
+		String comando = "INSERT INTO editoras " + "(nome) " + "VALUES (?)";
+
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, editora.getNome());
+			p.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public List<Editora> buscarEditoraPorNome(String nome) {
+		String comando = "SELECT * FROM editoras ";
+		if (!nome.equals("null") && !nome.equals("")) {
+			comando += "WHERE nome LIKE '" + nome + "%'";
+		}
+		List<Editora> listEditora = new ArrayList<Editora>();
+		Editora editora = null;
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			while (rs.next()) {
+				editora = new Editora();
+				String nomeEditora = rs.getString("nome");
+				int id = rs.getInt("id");
+
+				editora.setId(id);
+				editora.setNome(nomeEditora);
+
+				listEditora.add(editora);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listEditora;
+	}
+
+	public boolean deletarEditora(int id) {
+		String comando = "DELETE from editoras WHERE id=" + id;
+		Statement p;
+		try {
+			p = this.conexao.createStatement();
+			p.execute(comando);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public Editora buscarEditorasPorId(int id) {
+		String comando = "SELECT * FROM editoras WHERE id=" + id;
+		Editora editora = new Editora();
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			while (rs.next()) {
+				String nome = rs.getString("nome");
+				int idAutor = rs.getInt("id");
+
+				editora.setId(idAutor);
+				editora.setNome(nome);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return editora;
+	}
+
+	public boolean atualizarEditora(Editora editora) {
+		String comando = "UPDATE editoras SET nome=? WHERE id=" + editora.getId()
+				+ ";";
+
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, editora.getNome());
+			p.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	//---------------------------------------------------------------------------
+		
+	public boolean inserirLivro(Livro livro) {
+		String comando = "INSERT INTO livros " + 
+		"(titulo, descricao, quantidade, imagem, editoras_id) " +
+		"VALUES (?, ?, ?, ?, ?)";
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, livro.getTitulo());
+			p.setString(2, livro.getDescricao());
+			p.setInt(3, livro.getQuantidade());
+			p.setString(4, livro.getImagem());
+			p.setInt(5, livro.getEditoraId());
+			p.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		comando = "INSERT INTO livros_has_autores " +
+				"(autores_id, livros_id) " +
+				"VALUES (?, LAST_INSERT_ID())";
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setInt(1, livro.getAutorId());
+			p.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	public List<Livro> buscarLivroPorTitulo(String titulo) {
+		String comando = "SELECT livros.*, livros_has_autores.* from livros inner join livros_has_autores "+ 
+                      "on livros.id = livros_has_autores.livros_id ";
+		if (!titulo.equals("null") && !titulo.equals("")) {
+			comando += "WHERE livros.titulo LIKE '" + titulo + "%'";
+		}
+		List<Livro> listLivro = new ArrayList<Livro>();
+		Livro livro = null;
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			int id = 0;
+			while (rs.next()) {
+				livro = new Livro();
+				id = rs.getInt("id");
+				titulo = rs.getString("titulo");
+				String descricao = rs.getString("descricao");
+				int quantidade = rs.getInt("quantidade");
+				String imagem = rs.getString("imagem");
+				int editoraId = rs.getInt("editoras_id");
+				int autorId = rs.getInt("autores_id");
+				
+				livro.setId(id);
+				livro.setTitulo(titulo);
+				livro.setDescricao(descricao);
+				livro.setQuantidade(quantidade);
+				livro.setImagem(imagem);
+				livro.setEditoraId(editoraId);	
+				livro.setAutorId(autorId);
+				
+				listLivro.add(livro);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listLivro;
+	}
+
+	public boolean deletarLivro(int id) {
+		String comando = "DELETE from livros_has_autores WHERE livros_id=" + id;
+				
+		comando += "";
+		
+		Statement p;
+		try {
+			p = this.conexao.createStatement();
+			p.execute(comando);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		comando = "DELETE from livros WHERE id=" + id;
+		
+		try {
+			p = this.conexao.createStatement();
+			p.execute(comando);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public Livro buscarLivrosPorId(int id) {
+		
+		String comando = "SELECT livros.*, livros_has_autores.* FROM livros inner join livros_has_autores"
+				+ " ON livros.id = livros_has_autores.livros_id WHERE livros.id=" + id + ";";
+		Livro livro = new Livro();
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			while (rs.next()) {
+				int idLivro = rs.getInt("id");
+				String tituloLivro = rs.getString("titulo");
+				String descricao = rs.getString("descricao");
+				int quantidade = rs.getInt("quantidade");
+				String imagem = rs.getString("imagem");
+				int editoraId = rs.getInt("editoras_id");
+				int autorId = rs.getInt("autores_id");
+				
+				livro.setId(idLivro);
+				livro.setTitulo(tituloLivro);
+				livro.setDescricao(descricao);
+				livro.setQuantidade(quantidade);
+				livro.setImagem(imagem);
+				livro.setEditoraId(editoraId);
+				livro.setAutorId(autorId);
+			}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return livro;
+	}
+
+	public boolean atualizarLivro(Livro livro) {
+		String comando = "UPDATE livros inner join livros_has_autores "
+				+ "ON livros.id = livros_has_autores.livros_id "
+				+ "SET livros.titulo=?, livros.descricao=?, livros.quantidade=?, livros.imagem=?, "
+				+ "livros.editoras_id=?, livros_has_autores.autores_id=? WHERE livros.id=" + livro.getId() + ";";
+
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, livro.getTitulo());
+			p.setString(2, livro.getDescricao());
+			p.setInt(3, livro.getQuantidade());
+			p.setString(4, livro.getImagem());
+			p.setInt(5, livro.getEditoraId());
+			p.setInt(6, livro.getAutorId());
+			p.executeUpdate();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public List<Editora> coletarEditora() {
+		String comando = "SELECT * FROM editoras";
+		List<Editora> listEditora = new ArrayList<Editora>();
+		Editora editora = null;
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			while (rs.next()) {
+				editora = new Editora();
+				int id = rs.getInt("id");
+				String nome = rs.getString("nome");
+				
+				editora.setId(id);
+				editora.setNome(nome);
+				
+				listEditora.add(editora);
+			}
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listEditora;
+	}
+	
+	public List<Autor> coletarAutor() {
+		String comando = "SELECT * FROM autores";
+		List<Autor> listAutor = new ArrayList<Autor>();
+		Autor autor = null;
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			while (rs.next()) {
+				autor = new Autor();
+				int id = rs.getInt("id");
+				String nome = rs.getString("nome");
+				
+				autor.setId(id);
+				autor.setNome(nome);
+				
+				listAutor.add(autor);
+			}
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listAutor;
+	}
+	
+	
+	public boolean inserirAdmin(Admin admin) {
+		
+		String comando = "INSERT INTO usuario " +
+				"(login, senha, nivel_permissao) " +
+				"VALUES (?, ?, 2)";
+		
+		PreparedStatement p;
+		
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, admin.getLogin());
+			p.setString(2, admin.getSenha());
+			p.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		comando = "INSERT INTO administradores " + 
+		"(nome, imagem, usuario_login) " +
+		"VALUES (?, ?, ?)";
+		
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, admin.getNome());
+			p.setString(2, admin.getImagem());
+			p.setString(3, admin.getLogin());
+			p.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		
+		return true;
+	}
+
+	public List<Admin> buscarAdminPorNome(String nome) {
+		String comando = "SELECT administradores.*, usuario.* from administradores inner join usuario "+ 
+                      "on administradores.usuario_login = usuario.login ";
+		if (!nome.equals("null") && !nome.equals("")) {
+			comando += "WHERE administradores.nome LIKE '" + nome + "%'";
+		}
+		List<Admin> listAdmin = new ArrayList<Admin>();
+		Admin admin = null;
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			int id = 0;
+			while (rs.next()) {
+				admin = new Admin();
+				id = rs.getInt("id");
+				nome = rs.getString("nome");
+				String imagem = rs.getString("imagem");
+				String login = rs.getString("usuario_login");
+				String senha = rs.getString("senha");
+				
+				admin.setId(id);
+				admin.setNome(nome);
+				admin.setImagem(imagem);
+				admin.setLogin(login);
+				admin.setSenha(senha);
+				
+				listAdmin.add(admin);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listAdmin;
+	}
+
+	public boolean deletarAdmin(int id) {
+		String comando = "DELETE administradores, usuario from administradores INNER JOIN usuario on "
+				+ "administradores.usuario_login = usuario.login WHERE administradores.id="+ id;
+		
+		Statement p;
+		try {
+			p = this.conexao.createStatement();
+			p.execute(comando);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public Admin buscarAdminsPorId(int id) {
+		String comando = "SELECT administradores.*, usuario.* from administradores inner join usuario "+ 
+                "on administradores.usuario_login = usuario.login where administradores.id="+ id + ";";
+
+		Admin admin = new Admin();
+		try {
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			
+			while (rs.next()) {
+				int idAdmin = rs.getInt("id");
+				String nome = rs.getString("nome");
+				String imagem = rs.getString("imagem");
+				String login = rs.getString("login");
+				String senha= rs.getString("senha");
+				
+				admin.setId(idAdmin);
+				admin.setNome(nome);
+				admin.setImagem(imagem);
+				admin.setLogin(login);
+				admin.setSenha(senha);
+
+	
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return admin;
+	}
+
+	public boolean atualizarAdmin(Admin admin) {
+		String comando = "UPDATE usuario inner join administradores "
+				+ "ON administradores.usuario_login = usuario.login "
+				+ "SET usuario.senha=? WHERE administradores.id=" + admin.getId()
+				+ ";";
+
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, admin.getSenha());
+			p.executeUpdate();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}return true;
+	}
+	
+	//---------------------------------------------------------
+	
+	
+	
+		public boolean inserirCliente(Cliente cliente) {
+			String comando = "INSERT INTO usuario " +
+					"(login, senha, nivel_permissao) " +
+					"VALUES (?, ?, 1)";
+			
+			PreparedStatement p;
+			
+			try {
+				p = this.conexao.prepareStatement(comando);
+				p.setString(1, cliente.getLogin());
+				p.setString(2, cliente.getSenha());
+				p.execute();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+			
+			comando = "INSERT INTO clientes " + 
+			"(nome, data_nasc, email, imagem, usuario_login) " +
+			"VALUES (?, ?, ?, ?, ?)";
+			
+			try {
+				p = this.conexao.prepareStatement(comando);
+				p.setString(1, cliente.getNome());
+				p.setString(2, cliente.getData());
+				p.setString(3, cliente.getEmail());
+				p.setString(4, cliente.getImagem());
+				p.setString(5, cliente.getLogin());
+				p.execute();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+			
+			
+			return true;
+		}
+	
+		public List<Cliente> buscarClientePorNome(String nome) {
+			String comando = "SELECT clientes.*, usuario.* from clientes inner join usuario "+ 
+	                      "on clientes.usuario_login = usuario.login ";
+			if (!nome.equals("null") && !nome.equals("")) {
+				comando += "WHERE clientes.nome LIKE '" + nome + "%'";
+			}
+			List<Cliente> listCliente = new ArrayList<Cliente>();
+			Cliente cliente = null;
+			try {
+				java.sql.Statement stmt = conexao.createStatement();
+				ResultSet rs = stmt.executeQuery(comando);
+				int id = 0;
+				while (rs.next()) {
+					cliente = new Cliente();
+					id = rs.getInt("id");
+					nome = rs.getString("nome");
+					Date data = rs.getDate("data_nasc");
+					String email = rs.getString("email");
+					String imagem = rs.getString("imagem");
+					String login = rs.getString("usuario_login");
+					String senha = rs.getString("senha");
+					
+					cliente.setId(id);
+					cliente.setNome(nome);
+					cliente.setData(data);
+					cliente.setEmail(email);
+					cliente.setImagem(imagem);
+					cliente.setLogin(login);
+					cliente.setSenha(senha);
+					
+					listCliente.add(cliente);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return listCliente;
+			
+		}
+
+		public boolean deletarCliente(int id) {
+			String comando = "DELETE clientes, usuario from clientes INNER JOIN usuario on "
+					+ "clientes.usuario_login = usuario.login WHERE clientes.id="+ id;
+			
+			Statement p;
+			try {
+				p = this.conexao.createStatement();
+				p.execute(comando);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+			return true;
+		}
+
+		public Cliente buscarClientesPorId(int id) {
+			String comando = "SELECT clientes.*, usuario.* from clientes inner join usuario "+ 
+                    "on clientes.usuario_login = usuario.login where clientes.id="+ id + ";";
+
+			Cliente cliente = new Cliente();
+			try {
+				java.sql.Statement stmt = conexao.createStatement();
+				ResultSet rs = stmt.executeQuery(comando);
+				
+				while (rs.next()) {
+					int idCliente = rs.getInt("id");
+					String nome = rs.getString("nome");
+					Date data = rs.getDate("data_nasc");
+					String email = rs.getString("email");
+					String imagem = rs.getString("imagem");
+					String login = rs.getString("login");
+					String senha = rs.getString("senha");
+					
+					cliente.setId(idCliente);
+					cliente.setNome(nome);
+					cliente.setData(data);
+					cliente.setEmail(email);
+					cliente.setImagem(imagem);
+					cliente.setLogin(login);
+					cliente.setSenha(senha);
+	
+		
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return cliente;
+		}
+
+		public boolean atualizarCliente(Cliente cliente) {
+			String comando = "UPDATE usuario inner join clientes "
+					+ "ON clientes.usuario_login = usuario.login "
+					+ "SET usuario.senha=? WHERE clientes.id=" + cliente.getId()
+					+ ";";
+
+			PreparedStatement p;
+			try {
+				p = this.conexao.prepareStatement(comando);
+				p.setString(1, cliente.getSenha());
+				p.executeUpdate();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}return true;
+		}
+		
+		public Usuario adminLogado(int id) {
+			String comando = "SELECT administradores.*, usuario.* from administradores inner join usuario "+ 
+                    "on administradores.usuario_login = usuario.login where administradores.id="+ id + ";";
+
+			Usuario usuario = new Usuario();
+			try {
+				java.sql.Statement stmt = conexao.createStatement();
+				ResultSet rs = stmt.executeQuery(comando);
+				
+				while (rs.next()) {
+					String login = rs.getString("login");
+					String senha = rs.getString("senha");
+					int permissao = rs.getInt("nivel_permissao");
+					
+					usuario.setLogin(login);
+					usuario.setSenha(senha);
+					usuario.setPermissao(permissao);
+	
+		
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return usuario;
+		}
+		
+		public List<Admin> buscarAdminPorUsuario(String usuario) {
+			String comando = "SELECT administradores.*, usuario.* from administradores inner join usuario "+ 
+                    "on administradores.usuario_login = usuario.login where administradores.usuario_login="+ usuario + ";";
+
+			List<Admin> listAdmin = new ArrayList<Admin>();
+			Admin admin = null;
+			
+			try {
+				java.sql.Statement stmt = conexao.createStatement();
+				ResultSet rs = stmt.executeQuery(comando);
+				int id = 0;
+				while (rs.next()) {
+					admin = new Admin();
+					id = rs.getInt("id");
+					String nome = rs.getString("nome");
+					String imagem = rs.getString("imagem");
+					usuario = rs.getString("login");
+					String senha = rs.getString("senha");
+					System.out.println(nome);
+					admin.setId(id);
+					admin.setNome(nome);
+					admin.setImagem(imagem);
+					admin.setLogin(usuario);
+					admin.setSenha(senha);
+					
+					listAdmin.add(admin);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return listAdmin;
+		}
+		
+	
+};

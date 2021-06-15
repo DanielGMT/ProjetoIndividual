@@ -1,0 +1,68 @@
+
+out 11, 2019 20:29:27.70 NEW SESSION
+out 11, 2019 20:29:27.70 [2652:288:1011/202927.698:ERROR:wmi_refresher.cc(150)] Unable to add the Win32_PerfRawData_PerfDisk_PhysicalDisk enum.
+out 11, 2019 21:16:46.73 [3100:3116:1011/211646.731:ERROR:wmi_refresher.cc(150)] Unable to add the Win32_PerfRawData_PerfDisk_PhysicalDisk enum.
+out 11, 2019 21:24:26.96 [4616:584:1011/212426.962:ERROR:wmi_refresher.cc(150)] Unable to add the Win32_PerfRawData_PerfDisk_PhysicalDisk enum.
+out 11, 2019 21:44:21.42 [3508:4220:1011/214421.420:ERROR:wmi_refresher.cc(150)] Unable to add the Win32_PerfRawData_PerfDisk_PhysicalDisk enum.
+
+nov 10, 2019 23:29:00.28 NEW SESSION
+nov 10, 2019 23:29:00.28 [12656:10320:1110/222900.283:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 10, 2019 23:31:57.21 [8272:12060:1110/223157.214:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+
+nov 10, 2019 23:37:03.51 NEW SESSION
+nov 10, 2019 23:37:03.51 [10172:580:1110/223703.507:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 10, 2019 23:37:14.47 [2220:7192:1110/223714.470:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:01:05.53 [11556:6956:1110/230105.536:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:01:07.04 [11556:7720:1110/230107.048:ERROR:shared_change_processor.cc(196)] Passwords datatype error was encountered: Change processor disconnected.
+nov 11, 2019 24:13:54.80 [9996:10640:1110/231354.802:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:17:15.95 [2180:12920:1110/231715.953:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:19:23.33 [10220:12224:1110/231923.330:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:30:31.38 [11128:10908:1110/233031.388:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:34:38.77 [10244:3660:1110/233438.774:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:35:43.03 [952:452:1110/233543.032:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:36:20.45 [768:2408:1110/233620.458:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:40:24.74 [8892:8036:1110/234024.748:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:41:00.95 [452:5384:1110/234100.958:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:43:09.54 [2040:12796:1110/234309.548:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 24:43:29.24 [12792:5400:1110/234329.240:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:03:32.02 [13280:12912:1111/000332.025:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:05:49.15 [9144:11400:1111/000549.155:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:06:15.50 [7520:8756:1111/000615.499:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:08:08.05 [12412:3216:1111/000808.055:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:11:17.10 [4864:6412:1111/001117.105:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:12:21.56 [8144:9820:1111/001221.565:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:12:56.56 [5672:1876:1111/001256.569:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:17:15.58 [4616:10536:1111/001715.585:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:39:36.69 [10124:2608:1111/003936.695:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:41:04.03 [5516:5236:1111/004104.030:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:41:36.91 [4484:3112:1111/004136.911:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:45:32.29 [8948:8092:1111/004532.296:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:48:02.11 [11448:8596:1111/004802.116:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:53:04.53 [3260:1640:1111/005304.536:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:54:49.69 [10324:13248:1111/005449.695:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:55:24.29 [2996:10308:1111/005524.299:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:56:10.64 [7500:3788:1111/005610.640:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 01:58:20.33 [10196:8516:1111/005820.333:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 02:06:03.82 [11316:7532:1111/010603.819:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 02:32:51.76 [5208:8944:1111/013251.762:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 02:42:06.31 [5536:5756:1111/014206.311:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 02:43:27.28 [4912:5252:1111/014327.289:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 03:47:11.46 [6672:10252:1111/024711.462:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+nov 11, 2019 04:35:18.71 [6672:6244:1111/033518.711:ERROR:page_load_metrics_update_dispatcher.cc(166)] Invalid first_paint 0.843 s for first_image_paint 0.763 s
+nov 11, 2019 04:35:19.72 [6672:6244:1111/033519.729:ERROR:page_load_metrics_update_dispatcher.cc(166)] Invalid first_paint 0.843 s for first_image_paint 0.763 s
+nov 11, 2019 04:35:20.75 [6672:6244:1111/033520.757:ERROR:page_load_metrics_update_dispatcher.cc(166)] Invalid first_paint 0.843 s for first_image_paint 0.763 s
+nov 11, 2019 04:35:21.96 [6672:6244:1111/033521.962:ERROR:page_load_metrics_update_dispatcher.cc(166)] Invalid first_paint 0.843 s for first_image_paint 0.763 s
+nov 11, 2019 04:35:26.96 [6672:6244:1111/033526.962:ERROR:page_load_metrics_update_dispatcher.cc(166)] Invalid first_paint 0.843 s for first_image_paint 0.763 s
+nov 11, 2019 04:35:37.96 [6672:6244:1111/033537.965:ERROR:page_load_metrics_update_dispatcher.cc(166)] Invalid first_paint 0.843 s for first_image_paint 0.763 s
+nov 11, 2019 05:23:42.55 [6548:10952:1111/042342.554:ERROR:data_pack.cc(117)] Could not open pak file for writing: A operação solicitada não pode ser executada em um arquivo com uma seção mapeada pelo usuário aberta. (0x4C8)
+
+nov 26, 2019 14:42:52.65 NEW SESSION
+nov 26, 2019 14:42:52.65 [9028:13116:1126/134252.649:ERROR:configuration_policy_handler_list.cc(90)] Unknown policy: EnableCommonNameFallbackForLocalAnchors
+nov 26, 2019 14:42:52.76 [9028:13116:1126/134252.765:ERROR:configuration_policy_handler_list.cc(90)] Unknown policy: EnableCommonNameFallbackForLocalAnchors
+nov 26, 2019 14:43:00.55 [9028:13600:1126/134300.553:ERROR:wmi_refresher.cc(129)] Unable to add the Win32_PerfRawData_PerfDisk_PhysicalDisk enum.
+nov 26, 2019 15:22:07.71 [4156:12888:1126/142207.710:ERROR:configuration_policy_handler_list.cc(90)] Unknown policy: EnableCommonNameFallbackForLocalAnchors
+nov 26, 2019 15:22:07.80 [4156:12888:1126/142207.804:ERROR:configuration_policy_handler_list.cc(90)] Unknown policy: EnableCommonNameFallbackForLocalAnchors
+nov 26, 2019 15:22:24.11 [4156:12548:1126/142224.117:ERROR:wmi_refresher.cc(129)] Unable to add the Win32_PerfRawData_PerfDisk_PhysicalDisk enum.
+nov 26, 2019 15:27:39.83 [3584:6008:1126/142739.832:ERROR:configuration_policy_handler_list.cc(90)] Unknown policy: EnableCommonNameFallbackForLocalAnchors
+nov 26, 2019 15:27:39.91 [3584:6008:1126/142739.910:ERROR:configuration_policy_handler_list.cc(90)] Unknown policy: EnableCommonNameFallbackForLocalAnchors
+nov 26, 2019 15:27:48.85 [3584:8348:1126/142748.859:ERROR:wmi_refresher.cc(129)] Unable to add the Win32_PerfRawData_PerfDisk_PhysicalDisk enum.

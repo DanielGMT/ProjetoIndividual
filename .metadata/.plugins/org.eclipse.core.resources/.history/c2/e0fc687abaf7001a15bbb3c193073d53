@@ -1,0 +1,262 @@
+SENAI.biblioteca = new Object();
+
+$(document)
+		.ready(
+				function() {
+					
+						SENAI.biblioteca.exibirRelatorio = function(){
+							
+							var cfg = {
+									type : "GET",
+									url : "../../rest/bibliotecaRest/buscarEmprestimos2",
+									
+							success : function(emprestimo) {
+								var titulo = null;
+								var cfg = {
+										type : "GET",
+										url : "../../rest/bibliotecaRest/coletarLivros/",
+										
+								success : function(livro) {
+									var livros = [];
+									var emprestimos = [];
+									var count = 0;
+										
+											for(var i = 0; i < livro.length; i++){
+												
+												for(var j = 0; j < emprestimo.length; j++){
+													
+													if(livro[i].id == emprestimo[j].livroId){
+														
+															if(livros.indexOf(livro[i].titulo) > -1){
+																
+															}else{
+																livros.push(livro[i].titulo);
+															}
+														
+														
+														
+														count += 1
+													}
+												}
+												if(count != 0){
+													emprestimos.push(count);
+												}
+											
+												count = 0;
+												
+											}
+									
+										
+								var ctx = document.getElementsByClassName("line-chart");
+								
+								//type, data e options
+								var count = 0;
+								for (var i = 0; i < livro.length; i++){
+									count += 1;
+								}
+								var chartGraph = new Chart(ctx, {
+									type: 'bar',
+									
+									data:{
+										
+										labels: livros,
+										datasets: [{
+											
+											label: "Livros mais emprestados",
+											data: emprestimos,
+											borderwidth: 6,
+											borderColor: 'rgba(255, 99, 132)',
+											backgroundColor: ['green', 'blue', 'yellow', 'red', 'Purple', 'Orange'],
+										}]
+									},
+									options: {
+										title: {
+											display: true,
+											fontsize: 20,
+											text: "RELATÓRIO DE EMPRÉSTIMOS"
+										},
+										labels: {
+											fontStyle: "bold"
+										},
+								        scales: {
+								            yAxes: [{
+								                ticks: {
+								                    beginAtZero: true
+								                }
+								            }]
+								        }
+								    }
+								
+								});
+							},
+							error : function(err) {
+								
+							}
+							
+						};
+							
+							
+							SENAI.ajax.post(cfg);	
+							
+							},
+							error : function(err) {
+								
+							}
+							};
+							SENAI.ajax.post(cfg);
+							
+							var valorTotal = [];
+							var valor = 0;
+							var meses = [];
+							var dataReal = "";
+							var dataDividida = [];
+							  var counts = 0;
+							var dataDivididaInt = 0;
+							 var d = new Date();
+							  var n = (d.getMonth()+1);
+							  var value = "";
+							  
+							  
+							  
+							var cfg = {
+									type : "GET",
+									url : "../../rest/bibliotecaRest/buscarEmprestimosFinalizados",
+									
+							success : function(emprestimos) {
+								
+								var cfg = {
+										type : "GET",
+										url : "../../rest/bibliotecaRest/buscarDividas2",
+										
+										success : function(dividas) {
+												for(var i = 0; i < emprestimos.length; i++){
+												
+												for(var j = 0; j < dividas.length; j++){
+													
+													if(dividas[j].emprestimoId == emprestimos[i].id){
+														
+											
+																valorTotal.push(dividas.valor);
+														meses.push(emprestimos.dataReal);
+					
+													}
+												}
+											
+												
+											}
+											var ctx = document.getElementsByClassName("line-chart");
+											
+											//type, data e options
+											
+											var chartGraph = new Chart(ctx, {
+												type: 'line',
+												
+												data:{
+													
+													labels: meses,
+													datasets: [{
+														
+														label: "Total de dívidas pagas",
+														data: valorTotal,
+														borderwidth: 6,
+														borderColor: 'rgba(255, 99, 132)',
+														backgroundColor: ['green', 'blue', 'yellow', 'red', 'Purple', 'Orange'],
+													}]
+												},
+												options: {
+													title: {
+														display: true,
+														fontsize: 20,
+														text: "RELATÓRIO DE DÍVIDAS"
+													},
+													labels: {
+														fontStyle: "bold"
+													},
+											        scales: {
+											            yAxes: [{
+											                ticks: {
+											                    beginAtZero: true
+											                }
+											            }]
+											        }
+											    }
+											
+											});
+		
+										},
+										error : function(err) {
+											
+										}
+											
+								};
+								SENAI.ajax.post(cfg);
+							},
+								error : function(err) {
+									
+								}
+							};
+							SENAI.ajax.post(cfg);
+							
+							////////////////////////////
+							
+							
+							
+						}
+						
+						
+					
+						
+						$('#downloadPdf').click(function(event) {
+							  // get size of report page
+							  var reportPageHeight = $('#reportPage').innerHeight();
+							  var reportPageWidth = $('#reportPage').innerWidth();
+							  
+							  // create a new canvas object that we will populate with all other canvas objects
+							  var pdfCanvas = $('<canvas />').attr({
+							    id: "canvaspdf",
+							    width: reportPageWidth,
+							    height: reportPageHeight
+							  });
+							  
+							  
+							  
+							  // keep track canvas position
+							  var pdfctx = $(pdfCanvas)[0].getContext('2d');
+							  var pdfctxX = 0;
+							  var pdfctxY = 0;
+							  var buffer = 100;
+							  
+							  // for each chart.js chart
+							  $("canvas").each(function(index) {
+							    // get the chart height/width
+							    var canvasHeight = $(this).innerHeight();
+							    var canvasWidth = $(this).innerWidth();
+							    
+							    // draw the chart into the new canvas
+							    pdfctx.drawImage($(this)[0], pdfctxX, pdfctxY, canvasWidth, canvasHeight);
+							    pdfctxX += canvasWidth + buffer;
+							    
+							    // our report page is in a grid pattern so replicate that in the new canvas
+							    if (index % 2 === 1) {
+							      pdfctxX = 0;
+							      pdfctxY += canvasHeight + buffer;
+							    }
+							  });
+							  
+							  // create new pdf and add our new canvas as an image
+							  var pdf = new jsPDF('l', 'pt', [reportPageWidth, reportPageHeight]);
+							  pdf.addImage($(pdfCanvas)[0], 'PNG', 0, 0);
+							  
+							  // download the pdf
+							  pdf.save('relatorio.pdf');
+							  
+							  /////////////////////////
+							  
+							  
+							  
+							});
+						
+	
+						
+						SENAI.biblioteca.exibirRelatorio();
+				});

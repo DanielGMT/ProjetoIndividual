@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Login de usuário</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="resources/js/jquery.js"></script>
+		
+		<link rel="stylesheet" href="resources/css/jquery-ui.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/login.css">
+		 
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		
+		<script src="resources/js/ajax.js"></script>
+	</head>
+	<body>
+		<div class="wrapper fadeInDown" id="login">
+  			<div id="formContent">
+	 			<div class="fadeIn first">
+	      			<img src="images/cuberosa.png" id="icon" alt="User Icon" />
+	    		</div>
+	    		<div class="titulo">
+	    			<h3>Biblioteca Sala Rosa</h3>
+	    		</div>
+    			<form>
+      				<input type="text" id="login" class="fadeIn second" name="login" placeholder="usuário(CPF)">
+      				<input type="text" id="password" class="fadeIn third" name="login" placeholder="senha">
+      				<input type="submit" class="fadeIn fourth" value="Entrar">
+    			</form>
+				<div id="EsqueceuAsenha">
+      				<a class="underlineHover" href="#">Esqueceu a senha?</a>
+    			</div>
+    		</div>
+		</div>
+	</body>	
+</html>

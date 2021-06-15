@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>NavBar</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="resources/js/jquery.js"></script>
+		
+		<link rel="stylesheet" href="resources/css/jquery-ui.css">
+		
+		<link rel="stylesheet" href="css/NavBarADM.css">
+		 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		
+		<script src="resources/js/ajax.js"></script>
+		
+		<script src="js/navbar.js"></script>
+		
+	</head>
+	<body>
+	
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     	
+    </div>
+    <ul class="nav navbar-nav">
+      <a class="navbar-brand" href="#">Sala Rosa</a>
+      <li><a href="#">Empréstimos</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Dívidas</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Registros <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Page 1-1</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Consulta de dívidas pagas</a></li>
+    </ul>
+    <ul id="perfil" class="nav navbar-nav navbar-right">
+    	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      		<span class="glyphicon glyphicon-user"></span>
+      		<span class="caret"></span>
+      	</a>
+      	<ul class="dropdown-menu">
+      		<li><a href="#">Perfil</a></li>
+          	<li><a href="resources/login/login.html">Sair</a></li>	
+      	</ul>
+      </li>
+    </ul>  
+  </div> 
+</nav>
+
+<div class="container">
+  <h3>Livros</h3>
+  <p>Acervo lalala</p>
+</div>
+</body>
+</html>
+
